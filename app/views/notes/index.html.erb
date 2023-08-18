@@ -1,0 +1,27 @@
+
+<body >
+<center>
+
+  <p style="color: green"><%= notice %></p>
+
+  <div style="display: inline-block">
+    <h1>Notes</h1>
+
+    <% if current_user.notes.count == 0 %>
+      <h1 style="font-weight: bold">404, No Blogposts Shared</h1>
+    <%else %>
+      <div id="notes">
+        <% @notes.each do |note| %>
+          <%= render note %>
+          <p>
+            <%= link_to "Show this note", note %>
+          </p>
+        <% end %>
+      </div>
+    <%end %>
+
+    <%= link_to "New note", new_note_path %>
+  </div>
+
+</center>
+</body>
